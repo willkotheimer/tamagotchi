@@ -1,8 +1,9 @@
 import '../styles/main.scss';
+import builderFunction from './components/builderFunctions';
+import tamagotchi from '../data/tamagotchi';
 
+const array = tamagotchi.getTamagotchi();
 const init = () => {
-  $('#app').html('<h1>HELLO! You are up and running!</h1>');
-  console.log('YOU ARE UP AND RUNNING!');
+  builderFunction.domStringBuilder(array);
 };
-
 init();
