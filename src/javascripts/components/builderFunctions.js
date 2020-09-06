@@ -5,9 +5,17 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
+const topBuilder = () => {
+  const template = `<div class='top'>
+    <img class='img' src='../../src/images/image.jpg'/>
+  </div>
+  `;
+  printToDom('pet', template);
+};
+
 const domReBuilder = (array) => {
+  topBuilder();
   array.forEach((tg) => {
-    console.warn(tg);
     const template = `<div class="${tg.quadrantName}">
     <div class="name">${tg.quadrantName}</div>
     <div class="score">${tg.quadrantTotal}</div>
@@ -53,6 +61,7 @@ const addEventListener = (name) => {
 };
 
 const domStringBuilder = (array) => {
+  topBuilder();
   array.forEach((tg) => {
     const template = `<div class="${tg.quadrantName}">
   <div class="name">${tg.quadrantName}</div>

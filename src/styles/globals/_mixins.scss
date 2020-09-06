@@ -1,0 +1,23 @@
+@mixin text($size: null, $color: $darkgray, $weight: $regular-weight, $line-height: null) {
+  @if $size == lg {
+    font-size: $text-lg; 
+    line-height: $lh-text-lg; 
+  }
+  @else if $size == md {font-size: $text-md; line-height: $lh-text-md; }
+  @else if $size == sm {font-size: $text-sm; line-height: $lh-text-sm; }
+  @else                { font-size: $size; }
+  
+  font-weight: $weight;
+  color: $color;
+
+}
+
+
+@each $button, $button-color in $button-list {
+  ##{$button} {
+    background-color: $button-color;
+    h2 {
+      @include text(lg, $white);
+    }
+  }
+}
