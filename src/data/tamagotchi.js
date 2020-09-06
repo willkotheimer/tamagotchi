@@ -36,4 +36,6 @@ const tomagotchi = [
 
 const getTamagotchi = () => tomagotchi;
 
-export default { getTamagotchi };
+const quadFinder = (action) => tomagotchi.find((o) => o.quadrantName.toLowerCase() === action);
+
+export default { getTamagotchi, quadFinder };

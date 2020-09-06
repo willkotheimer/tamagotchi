@@ -1,9 +1,9 @@
 import '../styles/main.scss';
-import builderFunction from './components/builderFunctions';
-import tamagotchi from '../data/tamagotchi';
+import Tamagotchi from '../data/tamagotchi';
+import Builder from './components/builderFunctions';
 
-const array = tamagotchi.getTamagotchi();
 const init = () => {
-  builderFunction.domStringBuilder(array);
+  console.warn(Tamagotchi.getTamagotchi());
+  Builder.domStringBuilder(Tamagotchi.getTamagotchi());
 };
 init();
