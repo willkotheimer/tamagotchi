@@ -1,4 +1,5 @@
 import Tamagotchi from '../../data/tamagotchi';
+import ProgressBuilder from './progressBuilder';
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
@@ -15,6 +16,7 @@ const topBuilder = () => {
 
 const domReBuilder = (array) => {
   topBuilder();
+  ProgressBuilder.progress();
   array.forEach((tg) => {
     const template = `<div class="${tg.quadrantName}">
     <div class="name">${tg.quadrantName}</div>
@@ -43,8 +45,12 @@ const makeEvent = (id) => {
   }
   if ((myObj.quadrantTotal + num) <= 100) {
     myObj.quadrantTotal += num;
-    domReBuilder(Tamagotchi.getTamagotchi());
+  } else {
+    myObj.quadrantTotal = 100;
   }
+
+  if (myObj.quadrantTotal <= 0 || Tamagotchi.avgTotal() <= 0) { $('body').css('background-color', 'red'); }
+  domReBuilder(Tamagotchi.getTamagotchi());
 };
 
 const addEventListener = (name) => {
@@ -62,6 +68,7 @@ const addEventListener = (name) => {
 
 const domStringBuilder = (array) => {
   topBuilder();
+  ProgressBuilder.progress();
   array.forEach((tg) => {
     const template = `<div class="${tg.quadrantName}">
   <div class="name">${tg.quadrantName}</div>

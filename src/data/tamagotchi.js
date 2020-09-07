@@ -38,4 +38,10 @@ const getTamagotchi = () => tomagotchi;
 
 const quadFinder = (action) => tomagotchi.find((o) => o.quadrantName.toLowerCase() === action);
 
-export default { getTamagotchi, quadFinder };
+const avgTotal = () => {
+  const sum = getTamagotchi().reduce((currentTotal, nextValue) => currentTotal + nextValue.quadrantTotal, 0);
+  const progressBar = sum / 4;
+  return progressBar;
+};
+
+export default { getTamagotchi, quadFinder, avgTotal };
