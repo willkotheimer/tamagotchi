@@ -1,79 +1,42 @@
-# Webpack Intro
 
-[See Live Demo](https://webpack-temp.netlify.app/)
+# Week 8 - Tamagotchi
+This was an assignment to give us the opportunity to use everything we had done thus far in JS modules, event listeners, and templating, while adding sass, webpack, with JS lint. The Tamagotchi is a 1990s toy from Japan that allows the user to pretend to have a pet. Our version had four "actions": eating, sleeping, fighting, and playing, that increased its levels with each thing.
 
-Webpack is a task runner and a module bundler. It originally started as a module bundler. This means that it takes all of your separate Javascript modules and bundles them together into a single file. Webpack also automates some of the tasks that we have to run every time we change the code. It will automate these tasks so that we are not typing in the same commands every single time.
 
-Visit the [Webpack documentation](https://webpack.js.org/concepts/) if you want to explore more.
+## Motivation
+The motivation for this assignment was to build out our skills using sass and webpack, which both force conforming to use rules in coding, but also enable us to eliminate errors as we go.
 
-## Get Started
+## Build status
+The MVP is complete. One thing I would change that I think would make this better is if the progress bar didn't restart from zero everytime, but would increase or decrese from the point it starts, but this will probably require some thought and reworking of the origin al function, which I asquired online at `https://codeconvey.com/semi-circle-progress-bar-css/`
 
-### Use Template
-#### To get started, click the GREEN "Use this Template" button at the top of the repo
-![Use this Template](./documentation/usetemplate.png)
+## Code Style
+Jquery ES6, HTML5, SASS, JSLint, Webpack
 
-#### Make sure YOUR github account is selected in the dropdown and name your project
-![Create Project](./documentation/createproject.png)
+## Screenshots
 
-- Clone your new repo to your local machine
-- Start working!
+![](https://github.com/willkotheimer/tamagotchi/blob/master/src/images/Tagagotchi.PNG)
 
-### Starting the Project
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. To start your application, run `npm start`
+## URL
 
-### If you see this, you are set to go!
-![LIT](./documentation/lit-screen.png)
+[https://ecstatic-einstein-3ebafb.netlify.app/](https://ecstatic-einstein-3ebafb.netlify.app/)
 
-**NOTE:** Changes you make to the project will make the browser reload on save...no more hard refresh unless something goes wrong.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00353d09-21ac-4c14-a8b5-e73f9c67010b/deploy-status)](https://app.netlify.com/sites/ecstatic-einstein-3ebafb/deploys)
 
-## Other Important Tidbits
-### Console messages
-From this time forward, you will be expected to have a clean console in order for your assignments to be approved. This means that the use of `console.log` is acceptable **_(debugger is WAY better though)_** while developing, but will throw a warning in your console like the image below, but all `logs` will have to be removed. You may use `console.error` and `console.warn` in your code however.
+## Features
+Features to make energy levels increase or decrease on press of button, adding and subtracting levels, and averaging levels and have them display numerically and in a progress bar.
 
-![not acceptable](./documentation/notacceptable.png)
+## Code Example
+```             
+const getTamagotchi = () => tomagotchi;
 
-### Including Images with Webpack
-If you have a folder of local images that you want to load into your code things get a little strange with webpack.  Remember the only way webpack knows about assets is if they are imported into your javascript files.  Even our CSS is not added until those files are imported into our javascript files.  Below is some sample code for how to load a local image file into your project
+const quadFinder = (action) => tomagotchi.find((o) => o.quadrantName.toLowerCase() === action);
 
-```js
-import cat from './assets/cat.jpg';
-
-let domString = `<img src=${cat} alt="picture of a cat"/>`;
-
-document.getElementById('cat').innerHTMl = domString;
-```
-
-### Importing CSS/SCSS
-```js
-import '../styles/main.scss';
-
-const init = () => {
-  $('#app').html('<h1>HELLO! You are up and running!</h1>');
-  console.log('YOU ARE UP AND RUNNING!');
+const avgTotal = () => {
+  const sum = getTamagotchi().reduce((currentTotal, nextValue) => currentTotal + nextValue.quadrantTotal, 0);
+  const progressBar = sum / 4;
+  return progressBar;
 };
-
-init();
 ```
+## The Team
+[Will Kotheimer](https://github.com/willkotheimer)
 
-### Using Axios
-> For every file you will need to make an XHR request in, you will need to require Axios
-```js
-import axios from 'axios';
-
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
-```
-
-### Deploying on Netlify
-
-- Build Command: `npm run build`
-- Publish directory: `build`
