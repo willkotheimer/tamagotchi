@@ -1,5 +1,6 @@
 import Tamagotchi from '../../data/tamagotchi';
 
+/*Going to build this out to make it decrease/increase from last number and not only start from 0*/
 const progress = () => {
   const progressBar = Tamagotchi.avgTotal();
   const template = `<div class="barOverflow">
