@@ -8,7 +8,7 @@ const printToDom = (divId, textToPrint) => {
 
 const topBuilder = () => {
   const template = `<div class='top'>
-    <img class='img' src='../../src/images/image.jpg'/>
+    <img class='img' src='https://raw.githubusercontent.com/willkotheimer/tamagotchi/master/src/images/image.jpg'/>
   </div>
   `;
   printToDom('pet', template);
