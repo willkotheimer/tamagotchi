@@ -7,7 +7,7 @@ This was an assignment to give us the opportunity to use everything we had done 
 The motivation for this assignment was to build out our skills using sass and webpack, which both force conforming to use rules in coding, but also enable us to eliminate errors as we go.
 
 ## Build status
-The MVP is complete. One thing I would change that I think would make this better is if the progress bar didn't restart from zero everytime, but would increase or decrese from the point it starts, but this will probably require some thought and reworking of the origin al function, which I asquired online at `https://codeconvey.com/semi-circle-progress-bar-css/`
+The MVP is complete. I acquired the original progress bar online at `https://codeconvey.com/semi-circle-progress-bar-css/` but it only had started from zero and animated to the current average point. I modified this to be able to start from zero the first time, but everytime after it would simply increase or decrease from that point so it looks like the progress bar is going up and down.
 
 ## Code Style
 Jquery ES6, HTML5, SASS, JSLint, Webpack
