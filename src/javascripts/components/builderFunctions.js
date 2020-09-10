@@ -8,15 +8,15 @@ const printToDom = (divId, textToPrint) => {
 
 const topBuilder = () => {
   const template = `<div class='top'>
-    <img class='img' src='https://raw.githubusercontent.com/willkotheimer/tamagotchi/master/src/images/image.jpg'/>
+    <img class='img' src='../../src/images/image.jpg'/>
   </div>
   `;
   printToDom('pet', template);
 };
 
-const domReBuilder = (array) => {
+const domReBuilder = (array, previousTotal) => {
   topBuilder();
-  ProgressBuilder.progress();
+  ProgressBuilder.progress(previousTotal);
   array.forEach((tg) => {
     const template = `<div class="${tg.quadrantName}">
     <div class="name">${tg.quadrantName}</div>
@@ -50,7 +50,7 @@ const makeEvent = (id) => {
   }
 
   if (myObj.quadrantTotal <= 0 || Tamagotchi.avgTotal() <= 0) { $('body').css('background-color', 'red'); }
-  domReBuilder(Tamagotchi.getTamagotchi());
+  domReBuilder(Tamagotchi.getTamagotchi(), Tamagotchi.avgTotal());
 };
 
 const addEventListener = (name) => {
