@@ -1,7 +1,6 @@
 import Tamagotchi from '../../data/tamagotchi';
 
-/*Going to build this out to make it decrease/increase from last number and not only start from 0*/
-const progress = () => {
+const progress = (x = 0) => {
   const progressBar = Tamagotchi.avgTotal();
   const template = `<div class="barOverflow">
   <div class="bar"></div>
@@ -10,23 +9,21 @@ const progress = () => {
   const selectedDiv = document.getElementById('progress');
   selectedDiv.innerHTML = template;
   /* progress bar adapted from https://codeconvey.com/semi-circle-progress-bar-css/ */
-  $(document).ready(() => {
-    $('#progress').each(function () {
-      const bar = $(this).find('.bar');
-      const val = $(this).find('span');
-      console.warn(val.text());
-      const perc = parseInt(val.text(), 10);
-      console.warn(val.innerHTML);
-      $({ p: 0 }).animate({ p: perc }, {
-        duration: 1000,
-        easing: 'swing',
-        step: (p) => {
-          bar.css({
-            transform: `rotate(${(45 + p * 1.8)}deg)`,
-          });
-          val.text(Math.floor(p));
-        }
-      });
+  $('#progress').each(function () {
+    const bar = $(this).find('.bar');
+    const val = $(this).find('span');
+    console.warn(val.text());
+    const perc = parseInt(val.text(), 10);
+    console.warn(val.innerHTML);
+    $({ p: x }).animate({ p: perc }, {
+      duration: 1000,
+      easing: 'swing',
+      step: (p) => {
+        bar.css({
+          transform: `rotate(${(45 + p * 1.8)}deg)`,
+        });
+        val.text(Math.floor(p));
+      }
     });
   });
 };
